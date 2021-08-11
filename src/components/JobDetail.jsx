@@ -1,5 +1,14 @@
 import { Component } from 'react'
-import { Row, Col, Image } from 'react-bootstrap'
+import { Row, Col, Image, Button } from 'react-bootstrap'
+
+import { connect } from 'react-redux'
+import { addToFavouritesAction } from '../redux/actions'
+
+const mapStateToProps = (state) => state
+
+const mapDispatchToProps = (dispatch) => ({
+    addToFavourites: (company) => dispatch(addToFavouritesAction(company))
+})
 
 class JobDetail extends Component {
     state = {  
@@ -58,6 +67,9 @@ class JobDetail extends Component {
                                     <span className="font-weight-bold">Publication Date: </span>
                                     {this.state.job.publication_date}
                                 </p>
+                                <Button color="primary" onClick={() => this.props.addToFavourites(this.state.job)}>
+                                    ADD TO FAVORITES
+                                </Button>
                             </Col>
                         </Row>
                         <Row className='my-4'>
@@ -82,4 +94,4 @@ class JobDetail extends Component {
     }
 }
  
-export default JobDetail;
+export default connect(mapStateToProps, mapDispatchToProps)(JobDetail);

@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import JobDetail from './JobDetail'
 import JobList from './JobList'
 
-
 class CompanyDetail extends Component {
     state = {  
         compJobs: [],

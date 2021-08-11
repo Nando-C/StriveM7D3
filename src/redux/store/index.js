@@ -3,7 +3,7 @@ import mainReducer from "../reducers";
 
 export const initialState = {
     companies: {
-        favorites: [],
+        favourites: [],
     }
 }
 

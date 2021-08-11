@@ -2,21 +2,21 @@ import { initialState } from "../store";
 
 const mainReducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'ADD_TO_FAVORITES':
+        case 'ADD_TO_FAVOURITES':
             return {
                 ...state,
                 companies: {
                     ...state.companies,
-                    favorites: [...state.companies.favorites, action.payload]
+                    favourites: [...state.companies.favourites, action.payload]
                 }
             }
 
-        case 'REMOVE_FROM_FAVORITES':
+        case 'REMOVE_FROM_FAVOURITES':
             return {
                 ...state,
                 companies: {
                     ...state.companies,
-                    favorites: state.companies.favorites.filter((f, i) => i !== action.payload)
+                    favourites: state.companies.favourites.filter((f, i) => i !== action.payload)
                 }
             }
         
