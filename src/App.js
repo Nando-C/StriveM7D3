@@ -11,7 +11,7 @@ function App() {
       <Container>
         <Route path='/' exact component={Results}/>
         <Route path='/company-detail/:companyName' component={CompanyDetail} />
-        <Route path='/favourites' component={Favourites} />
+        <Route path='/favourites' exact component={Favourites} />
       </Container>
     </Router>
   );

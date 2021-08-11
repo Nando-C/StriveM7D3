@@ -1,37 +1,49 @@
 import { connect } from "react-redux"
-import { Row, Card } from 'react-bootstrap'
+import { Row, Card, Button } from 'react-bootstrap'
+import { FaTrash } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
+import { removeFromFavouritesAction } from "../redux/actions"
 
 const mapStateToProps = (state) => ({
     favourites: state.companies.favourites
 })
 
-const Favourites = ({favourites}) => ( 
+const mapDispatchToProps = (dispatch ) => ({
+    removeFromFavourites: (index) => dispatch(removeFromFavouritesAction(index))
+})
+
+const Favourites = ({favourites, removeFromFavourites}) => ( 
     
     <Row>
         {console.log(favourites)}
-        {favourites.map((fav) => 
-            <Card
-                className={
-                    // jobSelected?.id === job.id ? 
-                    // "border-thick mt-3" : 
-                    "mt-3"}
-                // onClick={() => changeJob(job)}
-                style={{ cursor: "pointer" }}>
-                <Card.Body className="d-flex">
-                    <Link to={"/company-detail/" + fav.company_name}>
-                        <img
-                            className="book-image"
-                            src={fav.logo}
-                            alt="company logo" />
-                    </Link>
-                    <Card.Text >
-                        <Link to={"/company-detail/" + fav.company_name}>{fav.company_name}</Link>
-                    </Card.Text>
-                </Card.Body>
-            </Card>
+        {favourites.map((fav, i) =>
+            // <Link to={"/company-detail/" + fav.companyName} style={{ color: '#455a64', textDecorationThickness: 5 }}>
+                <Card
+                    key={i}
+                    className="m-3"
+                    style={{ width: 200 }}>
+                    <Card.Body className="text-center">
+                        <Link to={"/company-detail/" + fav.companyName}>
+                            <img
+                                className="book-image m-auto"
+                                src={fav.logo}
+                                alt="company logo" />
+                        </Link>
+                        <Card.Text >
+                        <Link to={"/company-detail/" + fav.companyName} style={{ color: '#455a64', textDecorationThickness: 5 }}>
+                            <p className='mt-3'>
+                                <span className="font-weight-bold">{fav.companyName}</span>
+                            </p>
+                            </Link>
+                        </Card.Text>
+                        <Button size="sm" variant="danger" onClick={() => removeFromFavourites(i)}>
+                            <FaTrash />
+                        </Button>
+                    </Card.Body>
+                </Card>
+            // </Link>
         )}
     </Row>
 )
 
-export default connect(mapStateToProps)(Favourites)
+export default connect(mapStateToProps, mapDispatchToProps)(Favourites)

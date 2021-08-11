@@ -14,8 +14,8 @@ class SearchBar extends Component {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#link">Favourites</Nav.Link>
+                    <Link className='nav-link' to='/'>Home</Link>
+                    <Link className='nav-link' to='/favourites'>Favourites</Link>
                     </Nav>
                     <Form inline className='ml-auto'>
                         <FormControl type="text" placeholder="Search Jobs" className="mr-sm-2" value={this.props.query} onChange={this.props.inputChange} />
