@@ -24,3 +24,7 @@
   .border-thick {
     border-width: 3px;
   }
+
+  #basic-nav-dropdown {
+    color: #455a64;
+  }
