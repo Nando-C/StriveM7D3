@@ -7,7 +7,13 @@ const mainReducer = (state = initialState, action) => {
                 ...state,
                 companies: {
                     ...state.companies,
-                    favourites: [...state.companies.favourites, action.payload]
+                    favourites: [
+                        ...state.companies.favourites, 
+                        {
+                            companyName: action.payload.company_name,
+                            logo: action.payload.company_logo_url ? action.payload.company_logo_url : 'https://image.shutterstock.com/image-illustration/colourful-business-logo-company-name-260nw-1632621202.jpg',
+                        }
+                    ]
                 }
             }
 
