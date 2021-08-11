@@ -4,11 +4,13 @@ import { Container } from 'react-bootstrap'
 import Results from './components/Results';
 import CompanyDetail from './components/CompanyDetail';
 import Favourites from './components/Favourites';
+import NavBar from './components/NavBar';
 
 function App() {
   return (
     <Router>
       <Container>
+        <NavBar />
         <Route path='/' exact component={Results}/>
         <Route path='/company-detail/:companyName' component={CompanyDetail} />
         <Route path='/favourites' exact component={Favourites} />

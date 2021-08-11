@@ -7,22 +7,22 @@ class SearchBar extends Component {
 
     render() { 
         return ( 
-            <Navbar bg="light" variant="light">
-                <Link to='/'>
-                    <Image className='brandLogo' src='https://remotive.io/remotive_website_static_pages/static/src/img/logo_remotive.png' />
-                </Link>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="mr-auto">
-                    <Link className='nav-link' to='/'>Home</Link>
-                    <Link className='nav-link' to='/favourites'>Favourites</Link>
-                    </Nav>
-                    <Form inline className='ml-auto'>
+            // <Navbar bg="light" variant="light">
+            //     <Link to='/'>
+            //         <Image className='brandLogo' src='https://remotive.io/remotive_website_static_pages/static/src/img/logo_remotive.png' />
+            //     </Link>
+            //     <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            //     <Navbar.Collapse id="basic-navbar-nav">
+            //         <Nav className="mr-auto">
+            //         <Link className='nav-link' to='/'>Home</Link>
+            //         <Link className='nav-link' to='/favourites'>Favourites</Link>
+            //         </Nav>
+                    <Form inline className='my-3'>
                         <FormControl type="text" placeholder="Search Jobs" className="mr-sm-2" value={this.props.query} onChange={this.props.inputChange} />
                         <Button variant="outline-info" onClick={() => this.props.fecthJobs(this.props.query)} >Search</Button>
                     </Form>
-                </Navbar.Collapse>
-            </Navbar>
+            //     </Navbar.Collapse>
+            // </Navbar>
         );
     }
 }

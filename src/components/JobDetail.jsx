@@ -67,8 +67,9 @@ class JobDetail extends Component {
                                     <span className="font-weight-bold">Publication Date: </span>
                                     {this.state.job.publication_date}
                                 </p>
+                                <a className='btn btn-success mr-3' variant="success" href={this.state.job.url} target="_blank" >Apply To This Position</a>
                                 <Button color="primary" onClick={() => this.props.addToFavourites(this.state.job)}>
-                                    ADD TO FAVORITES
+                                    Add To Favorites
                                 </Button>
                             </Col>
                         </Row>
