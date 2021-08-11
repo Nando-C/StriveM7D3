@@ -13,11 +13,13 @@ const mapDispatchToProps = (dispatch ) => ({
 })
 
 const Favourites = ({favourites, removeFromFavourites}) => ( 
-    
+    <>
+    <Row className='m-3 justify-content-center'>
+        <h1>Favourite Companies</h1>
+    </Row>
     <Row>
-        {console.log(favourites)}
+        
         {favourites.map((fav, i) =>
-            // <Link to={"/company-detail/" + fav.companyName} style={{ color: '#455a64', textDecorationThickness: 5 }}>
                 <Card
                     key={i}
                     className="m-3"
@@ -41,9 +43,9 @@ const Favourites = ({favourites, removeFromFavourites}) => (
                         </Button>
                     </Card.Body>
                 </Card>
-            // </Link>
         )}
     </Row>
+    </>
 )
 
 export default connect(mapStateToProps, mapDispatchToProps)(Favourites)
